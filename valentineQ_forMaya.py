@@ -6,10 +6,10 @@ def get_mayaWindow():
     main_window_ptr = omui.MQtUtil.mainWindow()
     return wrapInstance(int(main_window_ptr), QtWidgets.QMainWindow)
 
-class questionWindow(QtWidgets.QDialog):
+class ValentineWindow(QtWidgets.QDialog):
     def __init__(self, parent=get_mayaWindow()):
-        super(questionWindow, self).__init__(parent)
- 
+        super(ValentineWindow, self).__init__(parent)
+
         self.setWindowTitle("Valentine Question")
         self.setWindowFlags(QtCore.Qt.Window)
 
@@ -52,7 +52,6 @@ class questionWindow(QtWidgets.QDialog):
         self.label.setStyleSheet("background-color: pink; color: black; border-style: outset; border-width: 5px; border-radius: 10px; border-color: red; padding: 30px;")
         QtCore.QTimer.singleShot(500, lambda: self.label.setText("Will you be my valentine?"))
 
-# Function to safely show the window
 def show_valentine_window():
     global valentine_win
     try:
@@ -64,5 +63,4 @@ def show_valentine_window():
     valentine_win = ValentineWindow()
     valentine_win.show()
 
-# Run it
 show_valentine_window()
